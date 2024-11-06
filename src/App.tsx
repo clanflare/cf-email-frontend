@@ -1,13 +1,12 @@
 import React, { useRef } from 'react';
-import EmailEditor, { EmailEditorProps } from 'react-email-editor';
-
+import EmailEditor, { EmailEditorProps, EditorRef  } from 'react-email-editor';
 const App: React.FC = () => {
-  const emailEditorRef = useRef<any>(null);
+  const emailEditorRef = useRef<EditorRef>(null);
 
   const exportHtml = () => {
     const unlayer = emailEditorRef.current?.editor;
 
-    unlayer?.exportHtml((data:any) => {
+    unlayer?.exportHtml((data) => {
       const { html } = data;
       console.log('HTML Output:', html);
       // Here, you could add the email-sending logic using the html content.
