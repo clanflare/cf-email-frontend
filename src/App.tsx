@@ -93,8 +93,8 @@ const App: React.FC = () => {
             appearance: {
               theme: 'modern_dark',
             },
-            projectId: 255723,
-            templateId: 566036,
+            projectId: 255988,
+            templateId: 566726,
           }}
           style={{ height: 'calc(100vh - 100px)' }}
         />
