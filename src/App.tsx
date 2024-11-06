@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import EmailEditor, { EmailEditorProps, EditorRef } from 'react-email-editor';
+import EmailEditor, {  EditorRef } from 'react-email-editor';
 
 const App: React.FC = () => {
   const emailEditorRef = useRef<EditorRef>(null);
@@ -36,7 +36,7 @@ const App: React.FC = () => {
   };
 
   const handleSendEmail = async () => {
-    const { from, subject, to, sendSeparately } = formValues;
+    const { from, subject, to } = formValues;
 
     try {
       const response = await fetch('https://63msl6ebsb.execute-api.ap-south-1.amazonaws.com/send-email', {//use api from env later
@@ -156,9 +156,15 @@ const App: React.FC = () => {
 };
 
 // Styles for the modal
-const modalStyles = {
+const modalStyles: {
+  overlay: React.CSSProperties;
+  modal: React.CSSProperties;
+  input: React.CSSProperties;
+  sendButton: React.CSSProperties;
+  cancelButton: React.CSSProperties;
+} = {
   overlay: {
-    position: 'fixed' as 'fixed',
+    position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
@@ -175,7 +181,7 @@ const modalStyles = {
     width: '400px',
     boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column' as 'column',
     gap: '10px',
   },
   input: {
